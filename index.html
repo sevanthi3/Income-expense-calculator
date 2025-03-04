@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Income Expense Calculator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=IM+Fell+Great+Primer+SC&family=Kings&family=Lugrasimo&family=Overlock+SC&family=Spirax&family=Trade+Winds&display=swap" rel="stylesheet">
+    <style>
+        .bdy {
+            background: linear-gradient(135deg, rgba(43, 42, 42, 0.3), rgba(39, 37, 37, 0.3)), url('./bg.jpg');
+            color: aliceblue;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            min-height: 100vh;
+        }
+        
+        #container {
+            background: linear-gradient(135deg, rgba(43, 42, 42, 0.8), rgba(39, 37, 37, 0.8)), url('./exp.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        
+        .top {
+            font-family: "Overlock SC", sans-serif;
+            font-style: normal;
+            text-align: center;
+            font-weight: bold;
+            font-size: x-large;
+            margin-bottom: 1%;
+        }
+        
+        .values {
+            font-family: "Trade Winds", system-ui;
+            font-weight: 400;
+            font-style: normal;
+        }
+        
+        .transac {
+            font-family: "IM Fell Great Primer SC", serif;
+            font-weight: bold;
+            font-style: normal;
+            width: 100%;
+            color: rgb(43, 136, 87);
+            background-color: rgb(241, 237, 232);
+            padding: 10px 0;
+            border-radius: 12px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease-in-out;
+            outline: #dbcf2a solid 2px;
+        }
+        
+        .transac:hover {
+            background-color: #f1f1e5f5;
+            color: #5ad0dd;
+            outline: #a0ef75f5 solid 2px;
+        }
+        #transaction-form{
+            color: black;
+        }
+        
+        .cursor-pointer {
+            font-family: "Spirax", system-ui;
+            font-weight: 400;
+            font-style: normal;
+        }
+        
+        .reset-btn {
+            font-family: "IM Fell Great Primer SC", serif;
+            font-weight: bold;
+            width: 100%;
+            background-color: #ef4444;
+            color: white;
+            padding: 12px 0;
+            border-radius: 12px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            margin-top: 16px;
+            border: 2px solid #dc2626;
+            transition: background-color 0.3s ease-in-out;
+        }
+        
+        .reset-btn:hover {
+            background-color: #dc2626;
+        }        
+    </style>
+</head>
+<body class="bdy p-6">
+    <div class="max-w-2xl mx-auto bg-white p-6 rounded-2xl shadow-2xl" id="container">
+        <h2 class="top"> 💸Income Expense Calculator📱</h2>  
+        <div class="flex justify-between mb-6 text-lg">
+            <p class="values">Total Income: <span id="total-income" class="text-green-500">₹0</span></p>
+            <p class="values">Total Expense: <span id="total-expense" class="text-red-500">₹0</span></p>
+            <p class="values">Balance: <span id="balance" class="text-blue-500">₹0</span></p>
+        </div>
+        <form id="transaction-form" class="mb-6">
+            <input type="text" id="description" placeholder="Description" class="w-full p-3 border rounded mb-3 shadow outline-none">
+            <input type="number" id="amount" placeholder="Amount" class="w-full p-3 border rounded mb-3 shadow outline-none">
+            <select id="type" class="w-full p-3 border rounded mb-3 shadow outline-none">
+                <option value="income">Income</option>
+                <option value="expense">Expense</option>
+            </select>
+            <button type="submit" class="transac">Add Transaction</button>
+        </form>
+        <div class="mb-4 flex justify-center gap-4">
+            <label class="cursor-pointer"><input type="radio" name="filter" value="all" checked> All</label>
+            <label class="cursor-pointer"><input type="radio" name="filter" value="income"> Income</label>
+            <label class="cursor-pointer"><input type="radio" name="filter" value="expense"> Expense</label>
+        </div>
+        <ul id="transaction-list" class="space-y-2"></ul>
+        <button id="reset" class="reset-btn">Reset</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
+
